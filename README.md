@@ -1,6 +1,6 @@
 # compare-jev-bigquery-ai-functions
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jackojacko05/compare-jev-bigquery-ai-functions/blob/main/notebooks/benchmark.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/jackojacko05/compare-jev-bigquery-ai-functions/blob/main/compare-jev-bigquery-ai-functions.ipynb)
 
 Reproducible companion repository for comparing Jev and Gemini on a bounded text-classification task orchestrated from BigQuery.
 
@@ -20,7 +20,7 @@ The 20-label, single-tag setup follows Google Cloud's
 | Model / pipeline | Accuracy | Correct | p50 latency | BQ job | Theoretical model cost / 200 |
 |---|---:|---:|---:|---:|---:|
 | Jev | 85.5% | 171/200 | 545ms | 3.753s | $0.00788164 |
-| Gemini 2.5 Flash-Lite via Vercel AI Gateway | 86.0% | 172/200 | 1,950ms | 9.483s | $0.01553910 |
+| Gemini 2.5 Flash-Lite | 86.0% | 172/200 | 1,950ms | 9.483s | $0.01553910 |
 | Jev → Gemini 3.1 Pro rerank | 86.0% | 172/200 | — | — | $0.27512564 |
 | Gemini 2.5 Flash-Lite → Gemini 3.1 Pro rerank | 84.5% | 169/200 | — | — | $0.27677910 |
 | Gemini 3.1 Pro Preview | **88.5%** | **177/200** | 2,853ms | 135.297s | $0.55055400 |
@@ -45,9 +45,11 @@ Question text is not committed to this repository. Rebuild the sample from the p
 
 ```text
 cloud-run/                 Vercel AI Gateway adapter used by BigQuery Remote Functions
-notebooks/benchmark.ipynb  Executed analysis notebook, also usable in Colab
+compare-jev-bigquery-ai-functions.ipynb  Canonical Colab notebook
+notebooks/benchmark.ipynb                 Synchronized notebook copy
 results/summary.csv        Published aggregate results
 results/performance.csv    Comparable latency and BigQuery job measurements
+docs/assets/               Blog-ready Plotly HTML and static PNG
 sql/                       Dataset preparation and benchmark queries
 ```
 

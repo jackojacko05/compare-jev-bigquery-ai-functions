@@ -19,13 +19,15 @@ The 20-label, single-tag setup follows Google Cloud's
 
 | Model / pipeline | Accuracy | Correct | p50 latency | BQ job | Theoretical model cost / 200 |
 |---|---:|---:|---:|---:|---:|
-| Jev | 85.5% | 171/200 | 545ms | 3.753s | $0.00788164 |
-| Gemini 2.5 Flash-Lite | 86.0% | 172/200 | 1,950ms | 9.483s | $0.01553910 |
-| Jev → Gemini 3.1 Pro rerank | 86.0% | 172/200 | — | — | $0.27512564 |
-| Gemini 2.5 Flash-Lite → Gemini 3.1 Pro rerank | 84.5% | 169/200 | — | — | $0.27677910 |
-| Gemini 3.1 Pro Preview | **88.5%** | **177/200** | 2,853ms | 135.297s | $0.55055400 |
+| Jev | **86.5%** | **173/200** | 368ms | 3.758s | $0.00903364 |
+| Gemini 2.5 Flash-Lite | 86.0% | 172/200 | 736ms | 4.733s | $0.01535670 |
+| Jev → Gemini 3.1 Pro rerank | 86.0% | 172/200 | — | — | $0.27217564 |
+| Gemini 2.5 Flash-Lite → Gemini 3.1 Pro rerank | 85.0% | 170/200 | — | — | $0.27932870 |
+| Gemini 3.1 Pro Preview | **87.0%** | **174/200** | 4,807ms | 20.926s | $0.55083000 |
 
 The rerank rows omit latency because their wall time combines a persisted first-stage run with a separate second-stage job.
+
+The fresh fair E2E runs use the same 200 rows, question information, 20 labels, label criteria, and BigQuery → Cloud Run → Vercel AI Gateway path. Model-specific APIs, structured-output mechanisms, and reasoning controls differ.
 
 Costs are calculated from observed tokens and the public prices at experiment time. They exclude BigQuery, Cloud Run, networking, Secret Manager, credits, failed attempts, and retries. The sample is a 200-row pilot, not a general model ranking.
 

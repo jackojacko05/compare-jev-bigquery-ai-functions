@@ -1,7 +1,7 @@
 method,accuracy,correct,total,input_tokens,output_tokens,theoretical_model_cost_usd,notes
-Jev baseline,0.855,171,200,197041,33491,0.00788164,output tokens free at observed price
+Jev baseline,0.865,173,200,225841,33490,0.00903364,fair E2E rerun with official criteria; output tokens free at observed price
 Gemini 2.5 Flash-Lite,0.855,171,200,106736,2283,0.01158680,thinking budget 0
-Gemini 2.5 Flash-Lite via Vercel AI Gateway,0.860,172,200,146419,2243,0.01553910,main fair comparison; same Cloud Run and AI Gateway path as Jev; reasoning none
+Gemini 2.5 Flash-Lite via Vercel AI Gateway,0.860,172,200,144535,2258,0.01535670,fair E2E rerun; same input and official criteria as Jev; reasoning none
 Jev official criteria,0.865,173,200,225841,,0.00903364,+2 fixed and 0 broken vs baseline
 Jev title emphasis,0.855,171,200,201642,,0.00806568,+1 fixed and 1 broken
 Jev one-shot per label,0.860,172,200,241841,,0.00967364,+1 fixed and 0 broken
@@ -10,7 +10,7 @@ BQML Random Forest,,,,,,,cancelled after 14m49s and 28516866360 processed bytes;
 Jev + Gemini 3.8 Flash rerank,0.865,173,200,257619,36886,0.06604639,147 of 200 rows reranked; 5 fixed and 3 broken
 Gemini 2.5 Flash-Lite + Gemini 3.8 Flash rerank,0.855,171,200,167372,7099,0.07512380,147 of 200 rows reranked; 9 fixed and 9 broken
 Gemini 3.8 Flash full,0.870,174,200,163419,9506,0.15821175,official criteria via Vercel AI Gateway; low reasoning; 100% completion
-Jev + Gemini 3.1 Pro rerank,0.860,172,200,257619,45665,0.27512564,147 of 200 rows reranked; 5 fixed and 4 broken; total includes Jev baseline
+Jev + Gemini 3.1 Pro rerank,0.860,172,200,285208,45524,0.27217564,fair E2E rerun; 148 of 200 rows reranked; 4 fixed and 5 broken; total includes Jev baseline
 Gemini 2.5 Flash-Lite + Gemini 3.1 Pro rerank,0.850,170,200,167372,14439,0.27873080,147 of 200 rows reranked; 7 fixed and 8 broken; total includes Gemini baseline
-Gemini 3.1 Pro full,0.885,177,200,163059,18703,0.55055400,latest Pro preview; official criteria via Vercel AI Gateway; low reasoning; 100% completion
-Gemini 2.5 Flash-Lite via Gateway + Gemini 3.1 Pro rerank,0.845,169,200,205405,14182,0.27677910,144 of 200 rows reranked; 9 fixed and 12 broken; total includes Gateway Gemini baseline
+Gemini 3.1 Pro full,0.870,174,200,159855,19260,0.55083000,fair E2E rerun; official criteria via Vercel AI Gateway; low reasoning; 100% completion
+Gemini 2.5 Flash-Lite via Gateway + Gemini 3.1 Pro rerank,0.850,170,200,203873,14366,0.27932870,fair E2E rerun; 148 of 200 rows reranked; 8 fixed and 10 broken; total includes Gateway Gemini baseline

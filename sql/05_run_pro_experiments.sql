@@ -24,7 +24,7 @@ IF experiment = 'rerank' THEN
     SELECT
       *,
       `YOUR_PROJECT_ID.jev_benchmark.classify_stackoverflow_pro_rerank`(
-        title, text_raw, first_label, target_run, CAST(question_id AS STRING)
+        '', text_raw, first_label, target_run, CAST(question_id AS STRING)
       ) AS prediction
     FROM source
   )
@@ -51,7 +51,7 @@ ELSEIF experiment = 'full' THEN
     SELECT
       *,
       `YOUR_PROJECT_ID.jev_benchmark.classify_stackoverflow_pro_full`(
-        title, text_raw, target_run, CAST(question_id AS STRING)
+        '', text_raw, target_run, CAST(question_id AS STRING)
       ) AS prediction
     FROM `YOUR_PROJECT_ID.jev_benchmark.so20_pilot200`
   )

@@ -16,15 +16,15 @@ WITH inferred AS (
   SELECT
     *,
     `YOUR_PROJECT_ID.jev_benchmark.classify_stackoverflow_gateway_gemini25fl_full`(
-      title,
+      '',
       text_raw,
-      'so20_gateway_gemini25fl_full_official_200_20260920_01',
+      'so20_gemini25fl_fair_e2e_200_20260920_03',
       CAST(question_id AS STRING)
     ) AS prediction
   FROM `YOUR_PROJECT_ID.jev_benchmark.so20_pilot200`
 )
 SELECT
-  'so20_gateway_gemini25fl_full_official_200_20260920_01' AS run_id,
+  'so20_gemini25fl_fair_e2e_200_20260920_03' AS run_id,
   JSON_VALUE(prediction, '$.model') AS model,
   'gateway_full_20class_official_criteria' AS variant,
   question_id,

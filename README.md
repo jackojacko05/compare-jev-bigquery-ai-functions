@@ -53,7 +53,16 @@ docs/assets/               Blog-ready Plotly HTML and static PNG
 sql/                       Dataset preparation and benchmark queries
 ```
 
-## Reproduce the analysis notebook
+## Run everything from Colab
+
+The canonical notebook now contains both paths:
+
+1. The saved aggregate analysis runs without cloud credentials.
+2. The optional live section authenticates Google Cloud, reads `VERCEL_AI_GATEWAY_API_KEY` from Colab Secrets, stores it in Secret Manager, deploys the Cloud Run adapter, creates the BigQuery connection and Remote Functions, rebuilds the 200-row sample, and runs Jev and Gemini.
+
+Open the notebook with the badge above, add `VERCEL_AI_GATEWAY_API_KEY` through Colab's key icon, set `PROJECT_ID`, review the created resources and cost warning, and only then change `RUN_LIVE` to `True`. The key is never printed or saved in the notebook. Existing run IDs are detected and skipped to reduce accidental duplicate inference.
+
+## Reproduce only the saved analysis
 
 The saved notebook reads only `results/summary.csv`, so it runs without cloud credentials:
 
@@ -64,7 +73,7 @@ pip install -r requirements.txt
 jupyter nbconvert --execute --to notebook --inplace notebooks/benchmark.ipynb
 ```
 
-For live model calls, replace `YOUR_PROJECT_ID` and `YOUR_CLOUD_RUN_URL` in the SQL files, deploy `cloud-run/`, and create the BigQuery connection and Remote Functions. Keep the Vercel credential in Google Secret Manager; never add it to the notebook or repository.
+The same notebook includes the live setup, so manually replacing SQL placeholders is not required when using Colab. The linked SQL and Cloud Run files remain visible for audit and customization.
 
 ## Important operational caveats
 

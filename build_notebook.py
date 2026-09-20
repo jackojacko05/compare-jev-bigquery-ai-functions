@@ -13,10 +13,13 @@ COPY = ROOT / "notebooks" / "benchmark.ipynb"
 notebook = nbformat.read(CANONICAL, as_version=4)
 nbformat.validate(notebook)
 
-assert len(notebook.cells) == 13
-assert sum(cell.cell_type == "code" for cell in notebook.cells) == 4
+assert len(notebook.cells) >= 20
+assert sum(cell.cell_type == "code" for cell in notebook.cells) >= 9
 assert any("go.Heatmap" in cell.source for cell in notebook.cells if cell.cell_type == "code")
 assert any("要約 / tl;dr" in cell.source for cell in notebook.cells if cell.cell_type == "markdown")
+assert any("End-to-end live reproduction" in cell.source for cell in notebook.cells if cell.cell_type == "markdown")
+assert any("VERCEL_AI_GATEWAY_API_KEY" in cell.source for cell in notebook.cells)
+assert any("Repository files" in cell.source for cell in notebook.cells if cell.cell_type == "markdown")
 
 nbformat.write(deepcopy(notebook), COPY)
 print(f"Validated {CANONICAL}")

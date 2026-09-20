@@ -15,7 +15,7 @@ nbformat.validate(notebook)
 
 assert len(notebook.cells) >= 20
 assert sum(cell.cell_type == "code" for cell in notebook.cells) >= 9
-assert any("go.Heatmap" in cell.source for cell in notebook.cells if cell.cell_type == "code")
+assert any("go.Scatter" in cell.source for cell in notebook.cells if cell.cell_type == "code")
 assert any("要約 / tl;dr" in cell.source for cell in notebook.cells if cell.cell_type == "markdown")
 assert any("End-to-end live reproduction" in cell.source for cell in notebook.cells if cell.cell_type == "markdown")
 assert any("VERCEL_AI_GATEWAY_API_KEY" in cell.source for cell in notebook.cells)

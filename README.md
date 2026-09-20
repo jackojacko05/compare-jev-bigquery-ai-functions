@@ -51,7 +51,7 @@ compare-jev-bigquery-ai-functions.ipynb  Canonical Colab notebook
 notebooks/benchmark.ipynb                 Synchronized notebook copy
 results/summary.csv        Published aggregate results
 results/performance.csv    Comparable latency and BigQuery job measurements
-docs/assets/               Blog-ready Plotly HTML and static PNG
+docs/assets/               Blog-ready static chart PNG
 sql/                       Dataset preparation and benchmark queries
 ```
 
